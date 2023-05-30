@@ -117,6 +117,6 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		// do something every day
+		// Do something every day.
 	}
 }

@@ -20,7 +20,6 @@
  * @subpackage Plugin_Name/admin
  * @author     Your Name <email@example.com>
  */
-
 class Plugin_Name_Admin_CLI extends WP_CLI_Command {
 	/**
 	 * Example Hello World custom WP-CLI command

@@ -40,6 +40,8 @@ class Plugin_Name_Cron {
 	}
 
 	/**
+	 * Get timestamp of next scheduled event.
+	 *
 	 * @return false|int Returns false if not scheduled, or timestamp of next run.
 	 */
 	private static function next_scheduled_daily() {

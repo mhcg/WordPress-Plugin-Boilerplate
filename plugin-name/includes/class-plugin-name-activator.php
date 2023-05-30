@@ -23,14 +23,11 @@
 class Plugin_Name_Activator {
 
 	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
+	 * Scheudle events (crons) on activation.
 	 *
 	 * @since    1.0.0
 	 */
 	public static function activate() {
-		// schedule events (cron jobs)
 		require_once plugin_dir_path( __FILE__ ) . 'class-plugin-name-cron.php';
 		Plugin_Name_Cron::schedule();
 	}
