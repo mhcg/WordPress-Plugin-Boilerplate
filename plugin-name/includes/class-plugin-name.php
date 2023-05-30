@@ -159,9 +159,19 @@ class Plugin_Name {
 
 		$plugin_admin = new Plugin_Name_Admin( $this->get_plugin_name(), $this->get_version() );
 
+		/**
+		 * Register admin scripts.
+		 */
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
+
+		/**
+		 * Register admin styles.
+		 */
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		/**
+		 * Register events (crons).
+		 */
 		$this->loader->add_action( Plugin_Name_Cron::PLUGIN_NAME_EVENT_DAILY_HOOK, $plugin_admin, 'run_daily_event' );
 	}
 
@@ -176,7 +186,14 @@ class Plugin_Name {
 
 		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
 
+		/**
+		 * Register public scripts.
+		 */
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+
+		/**
+		 * Register public styles.
+		 */
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}
@@ -196,6 +213,10 @@ class Plugin_Name {
 		 * The class responsible for executing any WP CLI commands.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-plugin-name-admin-cli.php';
+
+		/**
+		 * Register the WP-CLI commands.
+		 */
 		WP_CLI::add_command( 'plugin-name', 'Plugin_Name_Admin_CLI' );
 	}
 
